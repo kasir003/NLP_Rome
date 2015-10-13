@@ -47,7 +47,6 @@ The Primary input for the program is Senseval-2 file format file. Three differen
 
 Example format for name-conflate pair xml file :
 
-
  <?xml version="1.0" encoding="iso-8859-1" ?>
  <corpus lang='english'>
 
