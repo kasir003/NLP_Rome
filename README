@@ -12,13 +12,15 @@ SOLUTION - BASELINE SYSTEM
 
 This section gives details about the solution used in the system:
 
-The main idea behind the baseline system, is that words with same sense in different instances (sentences), have similar context i.e similar words around the target word. The picks up the first sentence yet to be clustered and identify words around the target word (also called feature words throughout the code and documentation) and then it looks, for these feature words in all the sentences and if it matches words in the sentence yet to be clustered it assigns them to the same cluster. It keeps on doing that till all the senteces become a part of some cluster. Finally there will be a few remaining sentences that don't have any common feature words, we assign all of them to a final cluster. 
+The main idea behind the baseline system, is that words with same sense in different instances (sentences), have similar context i.e similar words around the target word. The program picks up the first sentence yet to be clustered and identify words around the target word (also called feature words throughout the code and documentation) and then it looks, for these feature words in all the sentences and if it matches words in the sentence yet to be clustered it assigns them to the same cluster. It keeps on doing that till all the sentences become a part of some cluster. Finally there will be a few remaining sentences that don't have any common feature words, we assign all of them to a final cluster. 
 
 -----------------------
 HOW TO RUN THE PROGRAM
 -----------------------
 
 This section gives details about how to run the program:
+
+
 
 
 
