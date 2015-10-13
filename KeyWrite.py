@@ -36,8 +36,8 @@ class KeyWrite(object):
     # takes two words as arguements
     def writeConflatekey(self,path,word1,word2):
         #creating an object for further parsing
-        parser = etree.XMLParser(recover=True
-        #reads in the parsed xml)
+        parser = etree.XMLParser(recover=True)
+        #reads in the parsed xml
         tree=etree.parse(path,parser=parser)
         #identifies root which is main node
         root=tree.getroot()

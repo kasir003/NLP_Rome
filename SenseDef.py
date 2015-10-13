@@ -53,7 +53,6 @@ class SenseDef(object):
         #Loop to store feature set words with frequency
         for x in range(len(feature_all_cluster)):
             topfeatures_withcounts.append(Counter(feature_all_cluster[x]).most_common(4))
-        print (topfeatures_withcounts)
 #Loop to store most common words 
         for list in topfeatures_withcounts:
             for item in list:
@@ -78,7 +77,7 @@ class SenseDef(object):
         #creating a new file with name "word-definition.txt"
         newfile = open(filename,'w')
         newfile.write('Definition and Examples for %s' % (word))
-        self.contentWrite(content,words)
+        self.contentWrite(content,words,newfile)
 
 # This function writes example and defintion of the Name conflate file
     def writeconflateExampleandMeaning(self,word1,word2,content,words):
@@ -86,9 +85,9 @@ class SenseDef(object):
         #creating a new file  to store definition for name conflate words
         newfile = open(filename,'w')
         newfile.write('Definition and Examples for words %s and %s'%(word1,word2))
-        self.contentWrite(content,words)
+        self.contentWrite(content,words,newfile)
 # Writes definition example to the text file         
-    def contentWrite(self,content,words):
+    def contentWrite(self,content,words,newfile):
         start=0
         end=4
         #Writes in the content to output text file 
