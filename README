@@ -43,3 +43,15 @@ OUTPUT FILE FORMAT
 --------------
 CONTRIBUTIONS
 --------------
+
+Vamsidhar Kasireddy:
+
+Primary author of sensedef.py and main.py. Also contributed in the coming up with a solution of the baseline system. Author of the HOW TO RUN section of this README.
+
+Preethi Chimerla:
+
+Primary author of keywrite.py, xmlwrite.py and install.sh. Also contributed in the coming up with a solution of the baseline system. Author of the INPUT FILE and OUTPUT FILE FORMAT sections of this README.
+
+Nirav Sharda:
+
+Primary author of XMLParser.py and runit.sh. Also contributed in the coming up with a solution of the baseline system. Author of the PROBLEM and SOLUTION sections of this README.
