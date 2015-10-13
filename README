@@ -30,7 +30,7 @@ This section gives details about how to run the program:
 8) If the input file is Name conflate file then both TARGET_WORD1 and TARGET_WORD2 needs to be setup with out them being commented.
 9) The next variable is OUTPUTFILE, which stores the location and name of the output xml file 
 10) The next variable is to setup the location of senseclusters_scorer program and the name of the variable is SENSE_CLUSTERS_SCORER_LOCATION,by default it is set to something and the tar file has the sense_cluster_scorer program, so there is no need to change it.
-11)To run the main.py python script there are two modes.
+11)To run the main.py python script there are  different command line arguments.
    If running for single word input file use the line 23 in runit.sh, but if running for            name conflate input files with two words comment line 23 with # and remove # from line 24   and use it.
 
 
