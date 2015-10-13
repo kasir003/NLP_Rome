@@ -196,8 +196,6 @@ WORST WORD BASED ON PERFORMANCE
 -------------------------------
 
 <<<<<<< HEAD
-The worst word based on precision scores is the noun idea (35%) and the worst result for name conflate is for the words women and friend (52.57).
-=======
 The worst performing word based on precision scores is the noun idea (35%) and the worst result for name conflate are for the words women and friend (52.57).
 >>>>>>> f455b199bd1ce2398af063c4e0b76a21fec25bfa
 
