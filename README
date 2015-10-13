@@ -1,0 +1,45 @@
+--------
+PROBLEM 
+--------
+
+This section gives details about the problem at hand:
+
+The problem for this project is to create a dictionary from input raw text. The input for the system will be some instances (sentences), containing the target word, whose meaning has to be determined. The system created as a solution must cluster the input instances into N clusters, where N is automatically selected by the system. Also the system should give a meaning to each of these automatically created clusters and pick an example from the input instances for each of these clusters. The system should only use the input instances containing the target word, along with some random text from any corpus if needed.
+
+---------------------------
+SOLUTION - BASELINE SYSTEM
+---------------------------
+
+This section gives details about the solution used in the system:
+
+The main idea behind the baseline system, is that words with same sense in different instances (sentences), have similar context i.e similar words around the target word. The picks up the first sentence yet to be clustered and identify words around the target word (also called feature words throughout the code and documentation) and then it looks, for these feature words in all the sentences and if it matches words in the sentence yet to be clustered it assigns them to the same cluster. It keeps on doing that till all the senteces become a part of some cluster. Finally there will be a few remaining sentences that don't have any common feature words, we assign all of them to a final cluster. 
+
+-----------------------
+HOW TO RUN THE PROGRAM
+-----------------------
+
+This section gives details about how to run the program:
+
+
+
+
+------------------
+INPUT FILE FORMAT 
+------------------
+
+
+
+
+
+
+
+-------------------
+OUTPUT FILE FORMAT
+-------------------
+
+
+
+
+--------------
+CONTRIBUTIONS
+--------------
