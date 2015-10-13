@@ -16,11 +16,9 @@
 # is the baseline idea, we have to improve on this in the next stage.
 
 # Import nltk, stopwords from nltk, etree used for parsing
-# Import Counter used for counting feature words 
 import nltk
 from nltk.corpus import stopwords
 from lxml import etree
-from collections import Counter
 
 # Class definition
 class XMLParser(object):
@@ -82,7 +80,10 @@ class XMLParser(object):
 
                 return t,data
 
-        def cluster(self,target_word,t):
+        # The cluster function takes in the target_word and list of lists containing words
+        # of all sentences and the clusters the sentences based on the baseline idea.
+        # The idea is written in the beginning of this file.
+        def cluster(self,target_word,words_in_all_sentences):
 
                 # A new empty list
                 remainingsentences=[]
@@ -99,9 +100,10 @@ class XMLParser(object):
                 # Initialize a dictionary to store cluster information :
                 cluster_information = dict()
 
-                # Add all indexes 0-99 into remaining sentences
-                for a in range(len(t)):
-                        remainingsentences.append(a)
+                # Add indexes of all sentences into remaining sentences
+                # Initially all sentences are remaining to be clustered
+                for number in range(len(words_in_all_sentences)):
+                        remainingsentences.append(number)
 
         
                 # The sentences store the instance id of the sentence that are
@@ -126,7 +128,7 @@ class XMLParser(object):
                         # Iterate two times
                         for i in range(0,2):
 
-                                feature=self.findfeaturewords(sentences,t,target_word)
+                                feature=self.findfeaturewords(sentences,words_in_all_sentences,target_word)
 
                                 # The look in all remaining sentences for these feature words
                                 # We are looking in the range of +- 10 words
@@ -134,14 +136,14 @@ class XMLParser(object):
                                 # any of the feature word then they are in the
                                 # same cluster.
                                 for x in range(1,len(remainingsentences)):
-                                        index_of_target_word=[index for index, word in enumerate(t[remainingsentences[x]]) if word.startswith(target_word)]
+                                        index_of_target_word=[index for index, word in enumerate(words_in_all_sentences[remainingsentences[x]]) if word.startswith(target_word)]
 
                                         #Convert list to int
                                         index_of_target_word=index_of_target_word[0]
 
                                         # Look for feature words in +- 10 words around the target word in all remaining
                                         # sentences yet to be clustered.
-                                        w=t[remainingsentences[x]][index_of_target_word-10:index_of_target_word+10]
+                                        w=words_in_all_sentences[remainingsentences[x]][index_of_target_word-10:index_of_target_word+10]
 
                                         # if some matching words are found add the sentence to the current cluster
                                         if len([words for words in w if words in feature]) !=0:
@@ -178,7 +180,7 @@ class XMLParser(object):
                         cluster_information.update({remainingsentences[x]: cluster_number})
                         
                 # Adding feature words of the final cluster to the list features_of_all_clusters
-                features_of_all_clusters.append(self.findfeaturewords(remainingsentences,t,target_word))
+                features_of_all_clusters.append(self.findfeaturewords(remainingsentences,words_in_all_sentences,target_word))
 
                 # return cluster_information : dictionary containing clusters sentences
                 # and features_of_all_clusters : a list of lists containing feature words
@@ -187,24 +189,24 @@ class XMLParser(object):
 
         # This function finds the feature words around the target word i.e words in the range +-
         # 4 words around the target word.
-        def findfeaturewords(self,list_of_sentences,t,target_word):
+        def findfeaturewords(self,list_of_sentences,words_of_all_sentences,target_word):
                 
                 # A list for storing feature words
                 feature=[]
                 for x in range(len(list_of_sentences)):
                                         # find the index of target_word
-                                        index_of_target_word=[index for index, word in enumerate(t[list_of_sentences[x]]) if word.startswith(target_word)]
+                                        index_of_target_word=[index for index, word in enumerate(words_of_all_sentences[list_of_sentences[x]]) if word.startswith(target_word)]
                                         
                                         #convert list to int
                                         index_of_target_word = index_of_target_word[0]
 
                                         # Add words to the left of target word to the list feature.
                                         for y in range(index_of_target_word-4,index_of_target_word):
-                                                feature.append(t[list_of_sentences[x]][y])
+                                                feature.append(words_of_all_sentences[list_of_sentences[x]][y])
 
                                         # Add words to the right of target word to the list feature.
                                         for z in range(index_of_target_word+1,index_of_target_word+5):
-                                                feature.append(t[list_of_sentences[x]][z])
+                                                feature.append(words_of_all_sentences[list_of_sentences[x]][z])
                                                 
                 # return feature : A list containing feature words of all clusters
                 return feature
