@@ -1,0 +1,73 @@
+Author:
+
+----------------
+BASELINE METHOD
+----------------
+
+The idea behind the baseline system is as follows:
+
+The system extracts the sentences from the xml input file and then stores them in a list. It then splits the sentences into words. Then it removes the punctuation marks from the word splitted sentences and also removes the stop words. 
+
+Then we have a list of words for all sentences. The system picks up the words around the target word for the first sentence that is yet to be clustered and stores these words as feature words. It then looks in the words around the target words in all the remaining sentences yet to be clustered looking for these feature words. If any match is found it assigns them to the same cluster.Then it picks up feature words from all these clustered sentences and looks again in the remaining sentences and if a match is found assigns it to same cluster. It keeps on doing that till we find match between feature words from the first yet to be clustered sentence and the remaining sentences. 
+
+So the idea here is to find feature words twice for each cluster and find more matches in the same cluster, and after that move to the next cluster i.e pick the first unlcustered sentence and repeat this step.
+
+At the end we will have a few sentences that are not clustered. The baseline system will cluster them into 1 cluster and identify feature words for them.
+
+The feature words for all clusters are also saved which can later be used to assign meaning for each cluster.
+
+-------------------------
+PERFORMANCE OF ALL WORDS
+-------------------------
+manner-noun-shard014
+
+            S0#	      S1#	   TOTAL	
+  C0:*      37	      37	      74	(74.00)
+  C1:*       7	       8	      15	(15.00)
+  C2:*       3	       2	       5	(5.00)
+  C3:*       5	       1	       6	(6.00)
+ TOTAL      52	      48	     100
+         (52.00)   (48.00)
+
+live-verb-shard014
+
+            S0#	      S1#	      S2#	   TOTAL	
+  C0:*      47	      29	      19	      95	(95.00)
+  C1:*       4	       1	       0	       5	(5.00)
+ TOTAL      51	      30	      19	     100
+         (51.00)   (30.00)   (19.00)
+
+whale-night-shard014
+
+            S0#	      S1#	   TOTAL	
+  C0:*     517	     852	    1369	(93.07)
+  C1:*      43	      59	     102	(6.93)
+ TOTAL     560	     911	    1471
+         (38.07)   (61.93)
+
+priest-heaven-chime006
+
+
+tell-verb-chime006
+
+            S0#	      S1#	      S2#	      S3#	      S4#	   TOTAL	
+  C0:*       5	       1	      36	      12	      32	      86	(85.15)
+  C1:*       2	       0	       4	       5	       4	      15	(14.85)
+ TOTAL       7	       1	      40	      17	      36	     101
+         (6.93)   (0.99)   (39.60)   (16.83)   (35.64)
+
+
+
+
+-------------------------------
+BEST WORD BASED ON PERFORMANCE
+-------------------------------
+
+
+
+-------------------------------
+WORST WORD BASED ON PERFORMANCE
+-------------------------------
+
+
+
