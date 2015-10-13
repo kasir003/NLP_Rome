@@ -6,7 +6,7 @@ BASELINE METHOD
 
 The idea behind the baseline system is as follows:
 
-The system extracts the sentences from the xml input file and then stores them in a list. It then splits the sentences into words. Then it removes the punctuation marks from the word splitted sentences and also removes the stop words. 
+The system extracts the sentences from the xml input file and then stores them in a list. It then splits the sentences into words. Then it removes the punctuation marks from these list of words and also removes the stop words. 
 
 Then we have a list of words for all sentences. The system picks up the words around the target word for the first sentence that is yet to be clustered and stores these words as feature words. It then looks in the words around the target words in all the remaining sentences yet to be clustered looking for these feature words. If any match is found it assigns them to the same cluster.Then it picks up feature words from all these clustered sentences and looks again in the remaining sentences and if a match is found assigns it to same cluster. It keeps on doing that till we find match between feature words from the first yet to be clustered sentence and the remaining sentences. 
 
@@ -189,13 +189,24 @@ S1 = w_f.women
 BEST WORD BASED ON PERFORMANCE
 -------------------------------
 
-The best word based on precision scores is the verb believe (57.29%) and the best result for name conflate is for the words whale and night (60.84).
+The best preforming word based on precision scores is the verb believe (57.29%) and the best result for name conflate are for the words whale and night (60.84).
 
 -------------------------------
 WORST WORD BASED ON PERFORMANCE
 -------------------------------
 
+<<<<<<< HEAD
 The worst word based on precision scores is the noun idea (35%) and the worst result for name conflate is for the words women and friend (52.57).
+=======
+The worst performing word based on precision scores is the noun idea (35%) and the worst result for name conflate are for the words women and friend (52.57).
+>>>>>>> f455b199bd1ce2398af063c4e0b76a21fec25bfa
 
+-----------
+REFERENCES
+-----------
 
+1) David Yarowsky 1995. Unsupervised word sense disambiguation rivaling supervised methods.
+Link : http://www.aclweb.org/anthology/P95-1026
+
+Our baseline idea is mostly inspired by the idea given in this paper.
 
