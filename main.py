@@ -30,6 +30,7 @@ from XMLParser import XMLParser
 from XMLWrite import XMLWrite
 from KeyWrite import KeyWrite
 from SenseDef import SenseDef
+from ClusterSentences import ClusterSentences
 import argparse
 
 def main():
@@ -51,7 +52,8 @@ def main():
                 #retrieving the word which need to be processed list containing the context 
                 target_word,t,data= xmlParse.parse(args.posfile,args.keyword1)
                 #cluster information and feature set are retrieved
-                cluster,all_features = xmlParse.cluster(target_word,t)
+                clustersent = ClusterSentences()
+                cluster,all_features = clustersent.cluster(target_word,t)
                 xmlWrite = XMLWrite()
                 # generating the output xml file
                 xmlWrite.write(args.posfile,cluster,args.outputfile)
@@ -70,7 +72,8 @@ def main():
                 #retrieving the conflated word and list with context
                 target_word,t,data=xmlParse.parseConflate(args.conflatefile,args.keyword1,args.keyword2)
                 #cluster information and feature set are retrieved
-                cluster,all_features = xmlParse.cluster(target_word,t)
+                clustersent=ClusterSentences()
+                cluster,all_features = clustersent.cluster(target_word,t)
                 xmlWrite = XMLWrite()
                 #generating output xml file
                 xmlWrite.write(args.conflatefile,cluster,args.outputfile)
