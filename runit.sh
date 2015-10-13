@@ -15,15 +15,18 @@ OUTPUTFILE='./Output/tell-verb-chime006-out.xml'
 # Variable to store location of senseclusterscorer.sh
 SENSE_CLUSTERS_SCORER_LOCATION='./senseclusters_scorer'
 
+# Two modes to run the python main script which clusters the sentences, 
+# and prints the output definitions and key files, along with senseeval output.
+# The first line with -i is used to cluster the noun and verb xml files
+# To run the script for name conflate mode comment the first line and use 
+# the next line with -n and give two target words as well.
 python3 main.py -i $INPUTFILE -o $OUTPUTFILE -k1 $TARGET_WORD1 
-
-# Change this to other format for running name-conflate input file
 #python3 main.py -n $INPUTFILE -o $OUTPUTFILE -k1 $TARGET_WORD1 -k2 $TARGET_WORD2
 
 # sleep 5 seconds
 sleep 5s
-# move key files to sensecluster scorer location
 
+# move key files to sensecluster scorer location
 mv inputkey.key $SENSE_CLUSTERS_SCORER_LOCATION
 mv outputkey.key $SENSE_CLUSTERS_SCORER_LOCATION
 
