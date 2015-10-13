@@ -197,5 +197,12 @@ WORST WORD BASED ON PERFORMANCE
 
 The worst performing word based on precision scores is the noun idea (35%) and the worst result for name conflate are for the words women and friend (52.57).
 
+-----------
+REFERENCES
+-----------
 
+1) David Yarowsky 1995. Unsupervised word sense disambiguation rivaling supervised methods.
+Link : http://www.aclweb.org/anthology/P95-1026
+
+Our baseline idea is mostly inspired by the idea given in this paper.
 
