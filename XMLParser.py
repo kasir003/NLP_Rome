@@ -4,6 +4,7 @@
 # This program parses the input file , filters the senteces removing punctuations
 # and stopwords and sends the information to Cluster sentences.py
 # Import nltk, stopwords from nltk, etree used for parsing
+#
 import nltk
 from nltk.corpus import stopwords
 from lxml import etree
@@ -15,11 +16,12 @@ class XMLParser(object):
         def __init__(self):
                 self.data =[]
 
-        #
+        # this function looks out if the word is alphabetic or not , returns true if the word is alphabetic and
+        # false if numeric
         def isalfa(self,w):
                 return w.replace('_','').isalpha()
 
-        # 
+        # This function is used to parse the POS xml file
         def parse(self,path,keyword):
 
                 t,data=self.parsegeneral(path)
@@ -27,19 +29,21 @@ class XMLParser(object):
                 target_word = str(keyword)
 
                 return target_word,t,data
-        
+        # This function is used to parse name conflate xml file
         def parseConflate(self,path,keyword1,keyword2):
 
                 t,data=self.parsegeneral(path)
 
                 target_word = keyword1[0:1]+'_'+keyword2[0:1]
                 return target_word,t,data
-        # 
+        # this function is used to parse the xml and retrieve the contents in context tag and save it to a list
         def parsegeneral(self,path):
-                
+                #creating an object parser which helps in retrieving the xml parsing when it encounters an error
                 parser = etree.XMLParser(recover=True)
                 tree=etree.parse(path,parser=parser)
+                #saving the root node in root variable
                 root = tree.getroot()
+                #saving the content of context node in child list
                 child = root.findall('.//context')
                 data =[]
                 for index in range(len(child)):

@@ -73,7 +73,7 @@ class SenseDef(object):
         return content
 # This function writes example and definition of the POS file
     def writeexampleandmeaning(self,word,content,words):
-        filename = word+"-"+"definition.txt"
+        filename = "./Output/"+word+"-"+"definition.txt"
         #creating a new file with name "word-definition.txt"
         newfile = open(filename,'w')
         newfile.write('Definition and Examples for %s' % (word))
@@ -81,7 +81,7 @@ class SenseDef(object):
 
 # This function writes example and defintion of the Name conflate file
     def writeconflateExampleandMeaning(self,word1,word2,content,words):
-        filename=word1+"-"+word2+"-"+"definition.txt"
+        filename="./Output"+word1+"-"+word2+"-"+"definition.txt"
         #creating a new file  to store definition for name conflate words
         newfile = open(filename,'w')
         newfile.write('Definition and Examples for words %s and %s'%(word1,word2))
