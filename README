@@ -1,3 +1,30 @@
+******************************************************************************************
+		UMDuluth-Team-ROME-Cluster words based on context
+******************************************************************************************
+
+
+
+Contents of the Directory:
+
+1.runit.sh
+2.install.sh
+3.main.py
+4.XMLParser.py
+5.ClusterSentences.py
+6.SenseDef.py
+7.XMLWrite.py
+8.KeyWrite.py
+9.README
+10.BASELINES
+11.Input
+ 	
+
+
+12.Output
+
+
+13.SenseClusterScorer
+
 --------
 PROBLEM 
 --------
