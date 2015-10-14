@@ -1,9 +1,24 @@
 #Author : Nirav Sharda
 #Team : Rome
+# This program recieves the list_of_words in all sentences
+# and then clusters the sentences and outputs feature words,which
+# are then used by SenseDef.py for generating meaning and examples.
+# We maintain a list of yet to be clustered sentences. And the idea behind
+# the baseline system is to pick the first yet to be clustered sentence and
+# then find feature words around the target word in that sentences and then
+# look for those feature words in a larger domain of words around the target
+# words in all other sentences and cluster them in the same cluster. Then it
+# also add the feature words for all those sentences clustered and again looks
+# in all the remaining sentences for all these words and tries to add more
+# sentences into this cluster already created. It will keep on doing that
+# till it reaches a stage where there are a very few remaining sentences with
+# no matching feature words. Then it clusters all those into 1 cluster. This
+# is the baseline idea, we have to improve on this in the next stage.
+
 class ClusterSentences(object):
-    # The cluster function takes in the target_word and list of lists containing words
-    # of all sentences and the clusters the sentences based on the baseline idea.
-    # The idea is written in the beginning of this file.
+        # The cluster function takes in the target_word and list of lists containing words
+        # of all sentences and the clusters the sentences based on the baseline idea.
+        # The idea is written in the beginning of this file.
         def cluster(self,target_word,words_in_all_sentences):
 
                 # A new empty list
