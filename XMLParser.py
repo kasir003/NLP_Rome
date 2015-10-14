@@ -1,18 +1,8 @@
+# Author : Vamsidhar Kasireddy
+# Team : Rome 
+#
 # This program parses the input file , filters the senteces removing punctuations
-# and stopwords and then clusters the sentences and outputs feature words,
-# which are then used by SenseDef.py for generating meaning and examples.
-# We maintain a list of yet to be clustered sentences. And the idea behind
-# the baseline system is to pick the first yet to be clustered sentence and
-# then find feature words around the target word in that sentences and then
-# look for those feature words in a larger domain of words around the target
-# words in all other sentences and cluster them in the same cluster. Then it
-# also add the feature words for all those sentences clustered and again looks
-# in all the remaining sentences for all these words and tries to add more
-# sentences into this cluster already created. It will keep on doing that
-# till it reaches a stage where there are a very few remaining sentences with
-# no matching feature words. Then it clusters all those into 1 cluster. This
-# is the baseline idea, we have to improve on this in the next stage.
-
+# and stopwords and sends the information to Cluster sentences.py
 # Import nltk, stopwords from nltk, etree used for parsing
 import nltk
 from nltk.corpus import stopwords
